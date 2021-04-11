@@ -16,6 +16,8 @@ export type DataStoreModel<DataType extends PossibleTypes, FetchPayload = never>
   refetch: Thunk<DataStoreModel<DataType, FetchPayload>>
   // Listeners
   onFetch: ThunkOn<DataStoreModel<DataType, FetchPayload>, FetchPayload>
+  onFetchContent: ThunkOn<DataStoreModel<DataType, FetchPayload>, FetchPayload>
+  onReFetchContent: ThunkOn<DataStoreModel<DataType, FetchPayload>, FetchPayload>
   onCoveredFetch: ThunkOn<DataStoreModel<DataType, FetchPayload>, FetchPayload>
   onRefetch: ThunkOn<DataStoreModel<DataType>>
   // Actions
@@ -24,7 +26,7 @@ export type DataStoreModel<DataType extends PossibleTypes, FetchPayload = never>
   fetchSuccess: Action<DataStoreModel<DataType, FetchPayload>, DataType>
   fetchEndSuccess: Action<DataStoreModel<DataType, FetchPayload>>
   fetchEnd: Action<DataStoreModel<DataType, FetchPayload>>
-  storeFetchArgs: Action<DataStoreModel<DataType, FetchPayload>, FetchPayload>
+  collectFetchArgs: Action<DataStoreModel<DataType, FetchPayload>, FetchPayload>
   resetStore: Action<DataStoreModel<DataType, FetchPayload>>
 }
 
@@ -62,7 +64,21 @@ export const dataModel: DataModelReducer = (initialData, endpoint) => ({
   coveredFetch: thunk(() => {}),
   // Listeners
   onFetch: thunkOn(
-    (actions) => [actions.fetchContent, actions.refetch],
+    (actions) => [actions._fetch],
+    async (actions, target) => {
+      actions.collectFetchArgs(target.payload as any)
+    }
+  ),
+  onReFetchContent: thunkOn(
+    (actions) => actions.refetch,
+    async (actions, _, helpers) => {
+      actions.fetchStart(false)
+      const { refetchArgs } = helpers.getState()
+      actions._fetch(refetchArgs as any)
+    }
+  ),
+  onFetchContent: thunkOn(
+    (actions) => actions.fetchContent,
     async (actions, target) => {
       actions.fetchStart(false)
       actions._fetch(target.payload as any)
@@ -117,7 +133,7 @@ export const dataModel: DataModelReducer = (initialData, endpoint) => ({
     state.success = false
     state.refetchArgs = null
   }),
-  storeFetchArgs: action((state, payload) => {
+  collectFetchArgs: action((state, payload) => {
     state.refetchArgs = payload
   }),
 })
