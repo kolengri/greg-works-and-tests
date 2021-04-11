@@ -1,23 +1,28 @@
 import { useEffect } from "react"
 
-import Layout from "../components/Layout"
+import { HomeLayout } from "../layouts"
+import { Button } from "../components"
 import { storeHooks } from "../store"
 
 export type IndexPageProps = {}
 
 const IndexPage: React.FC<IndexPageProps> = () => {
-  const fetch = storeHooks.useStoreActions((s) => s.heroes.fetchContent)
-  const refetch = storeHooks.useStoreActions((s) => s.heroes.refetch)
+  const { refetch, resetStore, fetchContent } = storeHooks.useStoreActions((s) => s.heroes)
   const heroes = storeHooks.useStoreState((s) => s.heroes)
+
   useEffect(() => {
-    fetch({})
+    fetchContent({ page: 2 })
   }, [])
 
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <HomeLayout>
       <pre>{JSON.stringify(heroes, null, 4)}</pre>
-      <button onClick={() => refetch()}>Refetch!</button>
-    </Layout>
+
+      <Button loading={heroes.loading} onClick={() => refetch()}>
+        Refetch!
+      </Button>
+      <Button onClick={() => resetStore()}>Reset!</Button>
+    </HomeLayout>
   )
 }
 
