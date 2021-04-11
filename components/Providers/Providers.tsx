@@ -1,7 +1,6 @@
 import * as React from "react"
 
 import { StoreProvider } from "easy-peasy"
-
 import { store } from "../../store"
 
 export type ProvidersProps = {}

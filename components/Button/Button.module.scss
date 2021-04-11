@@ -1,0 +1,33 @@
+@import "../../styles/utils";
+
+.Button {
+  @apply relative;
+  @apply flex flex-nowrap justify-items-center align-middle items-center;
+  @apply px-5 py-1;
+  @apply text-sm text-purple-600 font-semibold;
+  @apply rounded-full;
+  @apply border border-purple-200;
+  @apply focus:outline-none;
+  @apply transition-colors;
+  @apply cursor-default select-none;
+
+  &:not(:disabled) {
+    @apply cursor-pointer;
+    @apply hover:bg-purple-600 hover:text-white hover:border-transparent;
+  }
+
+  &:disabled {
+    @apply opacity-80;
+  }
+}
+
+.Content {
+}
+
+.Content_off {
+  @apply invisible;
+}
+
+.Loader {
+  @apply absolute-center;
+}
