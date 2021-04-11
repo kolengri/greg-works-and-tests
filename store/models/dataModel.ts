@@ -10,7 +10,8 @@ export type DataStoreModel<DataType extends PossibleTypes, FetchPayload = never>
   refetchArgs: Generic<null | FetchPayload>
   success: boolean
   //   Thunk Actions
-  fetch: Thunk<DataStoreModel<DataType, FetchPayload>, FetchPayload>
+  _fetch: Thunk<DataStoreModel<DataType, FetchPayload>, FetchPayload>
+  fetchContent: Thunk<DataStoreModel<DataType, FetchPayload>, FetchPayload>
   coveredFetch: Thunk<DataStoreModel<DataType, FetchPayload>>
   refetch: Thunk<DataStoreModel<DataType, FetchPayload>>
   // Listeners
@@ -44,10 +45,9 @@ export const dataModel: DataModelReducer = (initialData, endpoint) => ({
   loading: false,
   refetchArgs: generic(null),
   success: false,
-  //   Actions
-  fetch: thunk(async (actions, payload) => {
+  // Main fetch
+  _fetch: thunk(async (actions, payload) => {
     try {
-      actions.fetchStart(false)
       const res = await endpoint(payload)
       actions.fetchSuccess(res)
     } catch (error) {
@@ -56,19 +56,23 @@ export const dataModel: DataModelReducer = (initialData, endpoint) => ({
       actions.fetchEnd()
     }
   }),
+  // Fetch aliases
+  fetchContent: thunk(() => {}),
   refetch: thunk(() => {}),
   coveredFetch: thunk(() => {}),
+  // Listeners
   onFetch: thunkOn(
-    (actions) => [actions.fetch, actions.refetch],
-    async (actions) => {
+    (actions) => [actions.fetchContent, actions.refetch],
+    async (actions, target) => {
       actions.fetchStart(false)
+      actions._fetch(target.payload as any)
     }
   ),
   onCoveredFetch: thunkOn(
-    (actions) => actions.fetch,
+    (actions) => actions.coveredFetch,
     async (actions, target) => {
       actions.fetchStart(true)
-      actions.fetch(target.payload as any)
+      actions._fetch(target.payload as any)
     }
   ),
   onRefetch: thunkOn(
@@ -76,10 +80,11 @@ export const dataModel: DataModelReducer = (initialData, endpoint) => ({
     async (actions, _target, helpers) => {
       const { refetchArgs, success, error } = helpers.getState()
       if (success || error) {
-        actions.fetch(refetchArgs as any)
+        actions._fetch(refetchArgs as any)
       }
     }
   ),
+  // Actions
   fetchStart: action((state, covered) => {
     if (covered) {
       state.coveredLoading = true

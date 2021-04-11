@@ -1,0 +1,1 @@
+export { fetchPeoples } from "./fetchPeoples"

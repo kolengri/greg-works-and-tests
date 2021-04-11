@@ -1,15 +1,24 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import { useEffect } from "react"
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+import Layout from "../components/Layout"
+import { storeHooks } from "../store"
+
+export type IndexPageProps = {}
+
+const IndexPage: React.FC<IndexPageProps> = () => {
+  const fetch = storeHooks.useStoreActions((s) => s.heroes.fetchContent)
+  const refetch = storeHooks.useStoreActions((s) => s.heroes.refetch)
+  const heroes = storeHooks.useStoreState((s) => s.heroes)
+  useEffect(() => {
+    fetch({})
+  }, [])
+
+  return (
+    <Layout title="Home | Next.js + TypeScript Example">
+      <pre>{JSON.stringify(heroes, null, 4)}</pre>
+      <button onClick={() => refetch()}>Refetch!</button>
+    </Layout>
+  )
+}
 
 export default IndexPage
