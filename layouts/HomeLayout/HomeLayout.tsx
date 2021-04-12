@@ -1,5 +1,6 @@
 import * as React from "react"
 import { withSlots } from "react-slot-component"
+
 import { PageLayout, PageLayoutSlots } from "../PageLayout"
 
 export type HomeLayoutProps = {

@@ -3179,10 +3179,10 @@ react-refresh@0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react-slot-component@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/react-slot-component/-/react-slot-component-1.0.3.tgz#7bfdaad096199cebbdde1d02436671536c18f272"
-  integrity sha512-1lgt0NAViVXnIfNusk9hsm1CNT0uKzbi4SsfR4YT7HxnETn29kaGyLD1eCh68ke97qZJ0FbvekOKtRfgW/bIQQ==
+react-slot-component@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/react-slot-component/-/react-slot-component-1.0.9.tgz#16972a3acb0d602dd0236d3a68262df671b44d01"
+  integrity sha512-/WqQYcAkSk1P7D/bU8PveaK4KNpi5wmLzkUtCai81Msl2p6BHjQDrERseGORZmwkk+adDkCYbLAQ50FzwYZQ2Q==
 
 react@^17.0.1:
   version "17.0.2"

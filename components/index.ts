@@ -1,4 +1,5 @@
 export * from "./Button"
+export * from "./DevPrettyObj"
 export * from "./Icon"
 export * from "./Loader"
 export * from "./Providers"

@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 body {
-  font-size: 16px;
+  @apply text-base;
+  @apply min-h-screen;
 }

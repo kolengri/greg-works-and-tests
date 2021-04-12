@@ -1,0 +1,11 @@
+.BaseLayout {
+  @apply min-h-screen;
+  @apply grid-flow-col;
+}
+
+.Header {
+  @apply row-span-1;
+}
+
+.Main {
+}

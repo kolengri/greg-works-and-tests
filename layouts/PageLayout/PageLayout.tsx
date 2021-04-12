@@ -7,17 +7,19 @@ import { TypeHeader } from "../../components"
 export type PageLayoutProps = {}
 export type PageLayoutSlots = {} & BaseLayoutSlots
 
-const PageLayoutMemo = withSlots<PageLayoutSlots, PageLayoutProps>((props) => {
+export const PageLayout = withSlots<PageLayoutSlots, PageLayoutProps>((props) => {
   const { children, slotProps } = props
 
   return (
     <BaseLayout propagateSlotProps={slotProps}>
-      {slotProps.Title && <TypeHeader as="h1">{slotProps.Title.children}</TypeHeader>}
+      {slotProps.Title && (
+        <BaseLayout.Header>
+          <TypeHeader as="h1">{slotProps.Title.children}</TypeHeader>
+        </BaseLayout.Header>
+      )}
       {children}
     </BaseLayout>
   )
 })
-
-export const PageLayout = React.memo(PageLayoutMemo)
 
 export default PageLayout
