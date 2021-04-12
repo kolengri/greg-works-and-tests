@@ -1,2 +1,2 @@
 export { BaseLayout } from "./BaseLayout"
-export type { BaseLayoutProps } from "./BaseLayout"
+export type { BaseLayoutProps, BaseLayoutSlots } from "./BaseLayout"

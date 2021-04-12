@@ -1,21 +1,16 @@
 import * as React from "react"
-
-import { BaseLayout } from "../BaseLayout"
+import { withSlots } from "react-slot-component"
+import { PageLayout, PageLayoutSlots } from "../PageLayout"
 
 export type HomeLayoutProps = {
   children: React.ReactNode
 }
 
-const HomeLayoutMemo: React.FC<HomeLayoutProps> = (props) => {
-  const { children } = props
-  return (
-    <BaseLayout>
-      <BaseLayout.Title>Test</BaseLayout.Title>
-      {children}
-    </BaseLayout>
-  )
-}
+export type HomeLayoutSlot = {} & PageLayoutSlots
 
-export const HomeLayout = React.memo(HomeLayoutMemo)
+export const HomeLayout = withSlots<HomeLayoutSlot, HomeLayoutProps>((props) => {
+  const { children, slotProps } = props
+  return <PageLayout propagateSlotProps={slotProps}>{children}</PageLayout>
+})
 
 export default HomeLayout

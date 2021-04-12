@@ -11,11 +11,12 @@ const IndexPage: React.FC<IndexPageProps> = () => {
   const heroes = storeHooks.useStoreState((s) => s.heroes)
 
   useEffect(() => {
-    fetchContent({ page: 2 })
+    fetchContent({ page: 3, limit: 10 })
   }, [])
 
   return (
     <HomeLayout>
+      <HomeLayout.Title>Home sweet home</HomeLayout.Title>
       <pre>{JSON.stringify(heroes, null, 4)}</pre>
 
       <Button loading={heroes.loading} onClick={() => refetch()}>

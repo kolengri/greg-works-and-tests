@@ -9,7 +9,7 @@ type TitleProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLTitleElement>
 export type BaseLayoutProps = {}
 export type BaseLayoutSlots = {
   Title: {
-    children: string
+    children: React.ReactText
   } & Omit<TitleProps, "children">
 }
 
@@ -17,7 +17,7 @@ export const BaseLayout = withSlots<BaseLayoutSlots, BaseLayoutProps>((props) =>
   const { children, slotProps } = props
   return (
     <>
-      <Head>{slotProps.Title && <title {...slotProps.Title}></title>}</Head>
+      <Head>{slotProps.Title && <title {...slotProps.Title} />}</Head>
       {children}
     </>
   )
