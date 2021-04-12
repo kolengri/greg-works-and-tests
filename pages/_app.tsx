@@ -1,3 +1,4 @@
+import "../styles/fonts.scss"
 import "../styles/globals.css"
 import "../styles/_utils.scss"
 

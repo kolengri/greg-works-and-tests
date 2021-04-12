@@ -1,0 +1,4 @@
+.TilesGrid {
+  @apply grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:auto-cols-auto;
+  @apply grid gap-4;
+}

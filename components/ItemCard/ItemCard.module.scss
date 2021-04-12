@@ -1,2 +1,55 @@
+@import "../../styles/utils";
+
+$cardSize: 200px;
+
 .ItemCard {
+  width: $cardSize;
+  min-height: $cardSize;
+  padding-top: $cardSize;
+
+  @apply relative;
+}
+
+.Content {
+  @apply absolute z-10 top-0 left-0;
+  @apply transform transition duration-500 ease-in-out origin-center hover:-translate-y-1 hover:scale-110;
+  @apply cursor-pointer;
+
+  &:hover {
+    @apply z-30;
+  }
+}
+
+.Image {
+  @apply rounded-xl;
+}
+
+.Preview {
+  @apply relative;
+  @apply overflow-hidden;
+  @apply rounded-xl;
+}
+
+@keyframes enter {
+  0% {
+    bottom: -30px;
+    left: 110%;
+  }
+
+  100% {
+    left: 0;
+    bottom: 10px;
+  }
+}
+
+.Header {
+  @apply absolute w-full px-3 py-1;
+  @apply text-yellow-starWars text-lg text-jedy;
+  @apply bg-black;
+  @apply rounded-b-xl;
+  @apply transform skew-y-6 skew-x-2;
+
+  bottom: 10px;
+  left: 0;
+  animation: enter 0.5s cubic-bezier(0, 0, 0.2, 1);
 }

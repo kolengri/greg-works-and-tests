@@ -19,12 +19,23 @@ export const ItemCard = withSlots<ItemCardSlots, ItemCardProps>((props) => {
   const { className, children, slotProps, ...otherProps } = props
   return (
     <div className={classnames(styles.ItemCard, className)} {...otherProps}>
-      {slotProps.Image && <LocalImage {...slotProps.Image} />}
-      {slotProps.Header && (
-        <header className={classnames(styles.Header, slotProps.Header.className)}>
-          {slotProps.Header.children}
-        </header>
-      )}
+      <div className={styles.Content}>
+        {[slotProps.Image, slotProps.Header].some(Boolean) && (
+          <div className={styles.Preview}>
+            {slotProps.Image && (
+              <LocalImage
+                {...slotProps.Image}
+                className={classnames(slotProps.Image.className, styles.Image)}
+              />
+            )}
+            {slotProps.Header && (
+              <header className={classnames(styles.Header, slotProps.Header.className)}>
+                {slotProps.Header.children}
+              </header>
+            )}
+          </div>
+        )}
+      </div>
       {children}
     </div>
   )

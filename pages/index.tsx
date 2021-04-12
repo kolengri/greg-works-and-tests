@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 
 import { HomeLayout } from "../layouts"
-import { Button, ItemCard } from "../components"
+import { Button, ItemCard, TilesGrid } from "../components"
 import { storeHooks } from "../store"
 
 export type IndexPageProps = {}
@@ -18,12 +18,14 @@ const IndexPage: React.FC<IndexPageProps> = () => {
   return (
     <HomeLayout>
       <HomeLayout.Title>Home sweet home</HomeLayout.Title>
-      {characters.map((item, index) => (
-        <ItemCard key={index}>
-          <ItemCard.Image src={item.image} />
-          <ItemCard.Header>{item.name}</ItemCard.Header>
-        </ItemCard>
-      ))}
+      <TilesGrid>
+        {characters.map((item, index) => (
+          <ItemCard key={item.id}>
+            <ItemCard.Image src={item.image} />
+            <ItemCard.Header>{item.name}</ItemCard.Header>
+          </ItemCard>
+        ))}
+      </TilesGrid>
       <Button loading={loading} onClick={() => refetch()}>
         Refetch!
       </Button>
@@ -32,6 +34,10 @@ const IndexPage: React.FC<IndexPageProps> = () => {
       </Button>
       <Button loading={loading} onClick={() => fetchContent({ skip: skip - 10, limit: 10 })}>
         Prev
+      </Button>
+
+      <Button loading={loading} onClick={() => fetchContent({ search: "skywalk" })}>
+        show skywalkers
       </Button>
 
       <Button onClick={() => resetStore()}>Reset!</Button>
