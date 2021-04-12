@@ -3,8 +3,3 @@ export type Pagination = {
   total: number
   skip: number
 }
-
-export type PaginationRequest = {
-  limit: number
-  skip: number
-}

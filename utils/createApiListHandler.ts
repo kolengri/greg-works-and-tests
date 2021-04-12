@@ -28,7 +28,7 @@ export const createApiListHandler = <T extends Resource<any>>(
     return data
   }
   const result: Result<T> = withSearch(data)
-    .slice(skip, skip + limit)
+    .slice(Number(skip), Number(skip) + Number(limit))
     .map((item) => ({
       id: item.pk,
       ...item.fields,
