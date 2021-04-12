@@ -8,7 +8,7 @@ export type IndexPageProps = {}
 
 const IndexPage: React.FC<IndexPageProps> = () => {
   const { refetch, resetStore, fetchContent } = storeHooks.useStoreActions((s) => s.characters)
-  const { result: characters, skip, total } = storeHooks.useStoreState((s) => s.characters.data)
+  const { result: characters, skip } = storeHooks.useStoreState((s) => s.characters.data)
   const { loading } = storeHooks.useStoreState((s) => s.characters)
 
   useEffect(() => {
