@@ -3,7 +3,7 @@ import {
   fetchCharacters,
   Params as CharactersStoreFetchPayload,
   Response,
-} from "../api/fetchCharacters"
+} from "../requests/fetchCharacters"
 import { INITIAL_WITH_PAGINATION } from "./models/defaults"
 
 export type CharactersStoreData = Response
