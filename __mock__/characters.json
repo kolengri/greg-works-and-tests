@@ -14,7 +14,7 @@
 			"birth_year": "19BBY",
 			"image": "luke_skywalker.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 1
 	},
 	{
@@ -32,7 +32,7 @@
 			"birth_year": "112BBY",
 			"image": "c-3po.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 2
 	},
 	{
@@ -50,7 +50,7 @@
 			"birth_year": "33BBY",
 			"image": "r2-d2.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 3
 	},
 	{
@@ -68,7 +68,7 @@
 			"birth_year": "41.9BBY",
 			"image": "darth_vader.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 4
 	},
 	{
@@ -86,7 +86,7 @@
 			"birth_year": "19BBY",
 			"image": "leia_organa.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 5
 	},
 	{
@@ -104,7 +104,7 @@
 			"birth_year": "52BBY",
 			"image": "owen_lars.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 6
 	},
 	{
@@ -122,7 +122,7 @@
 			"birth_year": "47BBY",
 			"image": "beru_whitesun_lars.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 7
 	},
 	{
@@ -140,7 +140,7 @@
 			"birth_year": "unknown",
 			"image": "r5-d4.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 8
 	},
 	{
@@ -158,7 +158,7 @@
 			"birth_year": "24BBY",
 			"image": "biggs_darklighter.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 9
 	},
 	{
@@ -176,7 +176,7 @@
 			"birth_year": "57BBY",
 			"image": "obi-wan_kenobi.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 10
 	},
 	{
@@ -194,7 +194,7 @@
 			"birth_year": "41.9BBY",
 			"image": "anakin_skywalker.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 11
 	},
 	{
@@ -212,7 +212,7 @@
 			"birth_year": "64BBY",
 			"image": "wilhuff_tarkin.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 12
 	},
 	{
@@ -230,7 +230,7 @@
 			"birth_year": "200BBY",
 			"image": "chewbacca.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 13
 	},
 	{
@@ -248,7 +248,7 @@
 			"birth_year": "29BBY",
 			"image": "han_solo.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 14
 	},
 	{
@@ -266,7 +266,7 @@
 			"birth_year": "44BBY",
 			"image": "greedo.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 15
 	},
 	{
@@ -284,7 +284,7 @@
 			"birth_year": "600BBY",
 			"image": "jabba_desilijic_tiure.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 16
 	},
 	{
@@ -302,7 +302,7 @@
 			"birth_year": "21BBY",
 			"image": "wedge_antilles.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 18
 	},
 	{
@@ -320,7 +320,7 @@
 			"birth_year": "unknown",
 			"image": "jek_tono_porkins.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 19
 	},
 	{
@@ -338,7 +338,7 @@
 			"birth_year": "896BBY",
 			"image": "yoda.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 20
 	},
 	{
@@ -356,7 +356,7 @@
 			"birth_year": "82BBY",
 			"image": "palpatine.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 21
 	},
 	{
@@ -374,7 +374,7 @@
 			"birth_year": "31.5BBY",
 			"image": "boba_fett.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 22
 	},
 	{
@@ -392,7 +392,7 @@
 			"birth_year": "15BBY",
 			"image": "ig-88.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 23
 	},
 	{
@@ -410,7 +410,7 @@
 			"birth_year": "53BBY",
 			"image": "bossk.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 24
 	},
 	{
@@ -428,7 +428,7 @@
 			"birth_year": "31BBY",
 			"image": "lando_calrissian.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 25
 	},
 	{
@@ -446,7 +446,7 @@
 			"birth_year": "37BBY",
 			"image": "lobot.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 26
 	},
 	{
@@ -464,7 +464,7 @@
 			"birth_year": "41BBY",
 			"image": "ackbar.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 27
 	},
 	{
@@ -482,7 +482,7 @@
 			"birth_year": "48BBY",
 			"image": "mon_mothma.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 28
 	},
 	{
@@ -500,7 +500,7 @@
 			"birth_year": "unknown",
 			"image": "arvel_crynyd.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 29
 	},
 	{
@@ -518,7 +518,7 @@
 			"birth_year": "8BBY",
 			"image": "wicket_systri_warrick.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 30
 	},
 	{
@@ -536,7 +536,7 @@
 			"birth_year": "unknown",
 			"image": "nien_nunb.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 31
 	},
 	{
@@ -554,7 +554,7 @@
 			"birth_year": "92BBY",
 			"image": "qui-gon_jinn.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 32
 	},
 	{
@@ -572,7 +572,7 @@
 			"birth_year": "unknown",
 			"image": "nute_gunray.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 33
 	},
 	{
@@ -590,7 +590,7 @@
 			"birth_year": "91BBY",
 			"image": "finis_valorum.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 34
 	},
 	{
@@ -608,7 +608,7 @@
 			"birth_year": "46BBY",
 			"image": "padme_amidala.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 35
 	},
 	{
@@ -626,7 +626,7 @@
 			"birth_year": "52BBY",
 			"image": "jar_jar_binks.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 36
 	},
 	{
@@ -644,7 +644,7 @@
 			"birth_year": "unknown",
 			"image": "roos_tarpals.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 37
 	},
 	{
@@ -662,7 +662,7 @@
 			"birth_year": "unknown",
 			"image": "rugor_nass.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 38
 	},
 	{
@@ -680,7 +680,7 @@
 			"birth_year": "unknown",
 			"image": "ric_olie.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 39
 	},
 	{
@@ -698,7 +698,7 @@
 			"birth_year": "unknown",
 			"image": "watto.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 40
 	},
 	{
@@ -716,7 +716,7 @@
 			"birth_year": "unknown",
 			"image": "sebulba.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 41
 	},
 	{
@@ -734,7 +734,7 @@
 			"birth_year": "62BBY",
 			"image": "quarsh_panaka.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 42
 	},
 	{
@@ -752,7 +752,7 @@
 			"birth_year": "72BBY",
 			"image": "shmi_skywalker.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 43
 	},
 	{
@@ -770,7 +770,7 @@
 			"birth_year": "54BBY",
 			"image": "darth_maul.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 44
 	},
 	{
@@ -788,7 +788,7 @@
 			"birth_year": "unknown",
 			"image": "bib_fortuna.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 45
 	},
 	{
@@ -806,7 +806,7 @@
 			"birth_year": "48BBY",
 			"image": "ayla_secura.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 46
 	},
 	{
@@ -824,7 +824,7 @@
 			"birth_year": "unknown",
 			"image": "ratts_tyerel.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 47
 	},
 	{
@@ -842,7 +842,7 @@
 			"birth_year": "unknown",
 			"image": "dud_bolt.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 48
 	},
 	{
@@ -860,7 +860,7 @@
 			"birth_year": "unknown",
 			"image": "gasgano.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 49
 	},
 	{
@@ -878,7 +878,7 @@
 			"birth_year": "unknown",
 			"image": "ben_quadinaros.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 50
 	},
 	{
@@ -896,7 +896,7 @@
 			"birth_year": "72BBY",
 			"image": "mace_windu.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 51
 	},
 	{
@@ -914,7 +914,7 @@
 			"birth_year": "92BBY",
 			"image": "ki-adi-mundi.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 52
 	},
 	{
@@ -932,7 +932,7 @@
 			"birth_year": "unknown",
 			"image": "kit_fisto.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 53
 	},
 	{
@@ -950,7 +950,7 @@
 			"birth_year": "unknown",
 			"image": "eeth_koth.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 54
 	},
 	{
@@ -968,7 +968,7 @@
 			"birth_year": "unknown",
 			"image": "adi_gallia.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 55
 	},
 	{
@@ -986,7 +986,7 @@
 			"birth_year": "unknown",
 			"image": "saesee_tiin.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 56
 	},
 	{
@@ -1004,7 +1004,7 @@
 			"birth_year": "unknown",
 			"image": "yarael_poof.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 57
 	},
 	{
@@ -1022,7 +1022,7 @@
 			"birth_year": "22BBY",
 			"image": "plo_koon.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 58
 	},
 	{
@@ -1040,7 +1040,7 @@
 			"birth_year": "unknown",
 			"image": "mas_amedda.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 59
 	},
 	{
@@ -1058,7 +1058,7 @@
 			"birth_year": "unknown",
 			"image": "gregar_typho.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 60
 	},
 	{
@@ -1076,7 +1076,7 @@
 			"birth_year": "unknown",
 			"image": "corde.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 61
 	},
 	{
@@ -1094,7 +1094,7 @@
 			"birth_year": "82BBY",
 			"image": "cliegg_lars.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 62
 	},
 	{
@@ -1112,7 +1112,7 @@
 			"birth_year": "unknown",
 			"image": "poggle_the_lesser.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 63
 	},
 	{
@@ -1130,7 +1130,7 @@
 			"birth_year": "58BBY",
 			"image": "luminara_unduli.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 64
 	},
 	{
@@ -1148,7 +1148,7 @@
 			"birth_year": "40BBY",
 			"image": "barriss_offee.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 65
 	},
 	{
@@ -1166,7 +1166,7 @@
 			"birth_year": "unknown",
 			"image": "dorme.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 66
 	},
 	{
@@ -1184,7 +1184,7 @@
 			"birth_year": "102BBY",
 			"image": "dooku.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 67
 	},
 	{
@@ -1202,7 +1202,7 @@
 			"birth_year": "67BBY",
 			"image": "bail_prestor_organa.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 68
 	},
 	{
@@ -1220,7 +1220,7 @@
 			"birth_year": "66BBY",
 			"image": "jango_fett.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 69
 	},
 	{
@@ -1238,7 +1238,7 @@
 			"birth_year": "unknown",
 			"image": "zam_wesell.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 70
 	},
 	{
@@ -1256,7 +1256,7 @@
 			"birth_year": "unknown",
 			"image": "dexter_jettster.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 71
 	},
 	{
@@ -1274,7 +1274,7 @@
 			"birth_year": "unknown",
 			"image": "lama_su.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 72
 	},
 	{
@@ -1292,7 +1292,7 @@
 			"birth_year": "unknown",
 			"image": "taun_we.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 73
 	},
 	{
@@ -1310,7 +1310,7 @@
 			"birth_year": "unknown",
 			"image": "jocasta_nu.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 74
 	},
 	{
@@ -1328,7 +1328,7 @@
 			"birth_year": "unknown",
 			"image": "r4-p17.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 75
 	},
 	{
@@ -1346,7 +1346,7 @@
 			"birth_year": "unknown",
 			"image": "wat_tambor.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 76
 	},
 	{
@@ -1364,7 +1364,7 @@
 			"birth_year": "unknown",
 			"image": "san_hill.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 77
 	},
 	{
@@ -1382,7 +1382,7 @@
 			"birth_year": "unknown",
 			"image": "shaak_ti.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 78
 	},
 	{
@@ -1400,7 +1400,7 @@
 			"birth_year": "unknown",
 			"image": "grievous.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 79
 	},
 	{
@@ -1418,7 +1418,7 @@
 			"birth_year": "unknown",
 			"image": "tarfful.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 80
 	},
 	{
@@ -1436,7 +1436,7 @@
 			"birth_year": "unknown",
 			"image": "raymus_antilles.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 81
 	},
 	{
@@ -1454,7 +1454,7 @@
 			"birth_year": "unknown",
 			"image": "sly_moore.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 82
 	},
 	{
@@ -1472,7 +1472,7 @@
 			"birth_year": "unknown",
 			"image": "tion_medon.jpg"
 		},
-		"model": "resources.people",
+		"model": "resources.character",
 		"pk": 83
 	}
 ]
