@@ -1,3 +1,3 @@
 import { Resource } from "./Resource"
 
-export type ResourceToModel<T> = { id: Resource<T>["pk"] } & Resource<T>["fields"]
+export type ResourceToModel<T extends Resource<any>> = { id: T["pk"] } & T["fields"]

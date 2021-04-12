@@ -7,9 +7,9 @@ export type HomeLayoutProps = {
   children: React.ReactNode
 }
 
-export type HomeLayoutSlot = {} & PageLayoutSlots
+export type HomeLayoutSlots = {} & PageLayoutSlots
 
-export const HomeLayout = withSlots<HomeLayoutSlot, HomeLayoutProps>((props) => {
+export const HomeLayout = withSlots<HomeLayoutSlots, HomeLayoutProps>((props) => {
   const { children, slotProps } = props
   return <PageLayout propagateSlotProps={slotProps}>{children}</PageLayout>
 })

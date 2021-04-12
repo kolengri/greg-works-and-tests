@@ -15,7 +15,9 @@ export const createApiListHandler = <T extends Resource<any>>(
   params: RequestParams,
   searchFn: (item: T) => (string | number)[]
 ): Response<T> => {
-  const { skip = 0, limit = DEFAULT_LIST_LIMIT, search } = params
+  const { search } = params
+  const skip = Number(params.skip || 0)
+  const limit = Number(params.limit || DEFAULT_LIST_LIMIT)
 
   const withSearch = (data: T[]) => {
     if (search) {
