@@ -2,7 +2,7 @@ import { Action, action, Generic, generic, Thunk, ThunkOn, thunk, thunkOn } from
 
 type PossibleTypes = string | number | Record<string | number, any> | any[]
 
-export type DataStoreModel<DataType extends PossibleTypes, FetchPayload = never> = {
+export type DataStoreModel<DataType extends PossibleTypes, FetchPayload = null> = {
   coveredLoading: boolean
   data: Generic<DataType>
   error: null | string
@@ -14,24 +14,27 @@ export type DataStoreModel<DataType extends PossibleTypes, FetchPayload = never>
   fetchContent: Thunk<DataStoreModel<DataType, FetchPayload>, FetchPayload>
   coveredFetch: Thunk<DataStoreModel<DataType, FetchPayload>>
   refetch: Thunk<DataStoreModel<DataType, FetchPayload>>
+  resetStore: Thunk<DataStoreModel<DataType>>
+
   // Listeners
   onFetch: ThunkOn<DataStoreModel<DataType, FetchPayload>, FetchPayload>
   onFetchContent: ThunkOn<DataStoreModel<DataType, FetchPayload>, FetchPayload>
   onReFetchContent: ThunkOn<DataStoreModel<DataType, FetchPayload>, FetchPayload>
   onCoveredFetch: ThunkOn<DataStoreModel<DataType, FetchPayload>, FetchPayload>
   onRefetch: ThunkOn<DataStoreModel<DataType>>
+  onResetStore: ThunkOn<DataStoreModel<DataType>>
   // Actions
-  fetchStart: Action<DataStoreModel<DataType, FetchPayload>, boolean>
-  fetchError: Action<DataStoreModel<DataType, FetchPayload>, string>
-  fetchSuccess: Action<DataStoreModel<DataType, FetchPayload>, DataType>
-  fetchEndSuccess: Action<DataStoreModel<DataType, FetchPayload>>
-  fetchEnd: Action<DataStoreModel<DataType, FetchPayload>>
-  collectFetchArgs: Action<DataStoreModel<DataType, FetchPayload>, FetchPayload>
-  resetStore: Action<DataStoreModel<DataType, FetchPayload>>
+  _fetchStart: Action<DataStoreModel<DataType, FetchPayload>, boolean>
+  _fetchError: Action<DataStoreModel<DataType, FetchPayload>, string>
+  _fetchSuccess: Action<DataStoreModel<DataType, FetchPayload>, DataType>
+  _fetchEndSuccess: Action<DataStoreModel<DataType, FetchPayload>>
+  _fetchEnd: Action<DataStoreModel<DataType, FetchPayload>>
+  _collectFetchArgs: Action<DataStoreModel<DataType, FetchPayload>, FetchPayload>
+  _resetStore: Action<DataStoreModel<DataType>>
 }
 
 export type DataModelReducer = {
-  <DataType extends PossibleTypes, FetchPayload = never>(
+  <DataType extends PossibleTypes, FetchPayload = null>(
     initialData: DataType,
     endpoint: (payload: FetchPayload) => Promise<DataType>
   ): DataStoreModel<DataType, FetchPayload>
@@ -40,39 +43,45 @@ export type DataModelReducer = {
 const copyData = (data: any) => JSON.parse(JSON.stringify(data))
 
 export const dataModel: DataModelReducer = (initialData, endpoint) => ({
-  coveredLoading: false,
-  //   Copy data
   data: generic(copyData(initialData)),
   error: null,
   loading: false,
+  coveredLoading: false,
   refetchArgs: generic(null),
   success: false,
+  /**
+   * Thunks
+   */
   // Main fetch
   _fetch: thunk(async (actions, payload) => {
     try {
       const res = await endpoint(payload)
-      actions.fetchSuccess(res)
+      actions._fetchSuccess(res)
     } catch (error) {
-      actions.fetchError(error.message)
+      actions._fetchError(error.message)
     } finally {
-      actions.fetchEnd()
+      actions._fetchEnd()
     }
   }),
   // Fetch aliases
+  coveredFetch: thunk(() => {}),
   fetchContent: thunk(() => {}),
   refetch: thunk(() => {}),
-  coveredFetch: thunk(() => {}),
-  // Listeners
+  //
+  resetStore: thunk(() => {}),
+  /**
+   * Listeners
+   */
   onFetch: thunkOn(
     (actions) => [actions._fetch],
     async (actions, target) => {
-      actions.collectFetchArgs(target.payload as any)
+      actions._collectFetchArgs(target.payload as any)
     }
   ),
   onReFetchContent: thunkOn(
     (actions) => actions.refetch,
     async (actions, _, helpers) => {
-      actions.fetchStart(false)
+      actions._fetchStart(false)
       const { refetchArgs } = helpers.getState()
       actions._fetch(refetchArgs as any)
     }
@@ -80,14 +89,14 @@ export const dataModel: DataModelReducer = (initialData, endpoint) => ({
   onFetchContent: thunkOn(
     (actions) => actions.fetchContent,
     async (actions, target) => {
-      actions.fetchStart(false)
+      actions._fetchStart(false)
       actions._fetch(target.payload as any)
     }
   ),
   onCoveredFetch: thunkOn(
     (actions) => actions.coveredFetch,
     async (actions, target) => {
-      actions.fetchStart(true)
+      actions._fetchStart(true)
       actions._fetch(target.payload as any)
     }
   ),
@@ -100,31 +109,39 @@ export const dataModel: DataModelReducer = (initialData, endpoint) => ({
       }
     }
   ),
-  // Actions
-  fetchStart: action((state, covered) => {
+  onResetStore: thunkOn(
+    (actions) => actions.resetStore,
+    async (actions) => {
+      actions._resetStore()
+    }
+  ),
+  /**
+   * Private actions
+   */
+  _fetchStart: action((state, covered) => {
     if (covered) {
       state.coveredLoading = true
     } else {
       state.loading = true
     }
   }),
-  fetchError: action((state, error) => {
+  _fetchError: action((state, error) => {
     state.error = error
   }),
-  fetchSuccess: action((state, payload) => {
+  _fetchSuccess: action((state, payload) => {
     state.data = payload
     state.success = true
     state.error = null
   }),
-  fetchEndSuccess: action((state) => {
+  _fetchEndSuccess: action((state) => {
     state.success = true
     state.error = null
   }),
-  fetchEnd: action((state) => {
+  _fetchEnd: action((state) => {
     state.loading = false
     state.coveredLoading = false
   }),
-  resetStore: action((state) => {
+  _resetStore: action((state) => {
     state.data = copyData(initialData)
     state.coveredLoading = false
     state.error = null
@@ -133,7 +150,7 @@ export const dataModel: DataModelReducer = (initialData, endpoint) => ({
     state.success = false
     state.refetchArgs = null
   }),
-  collectFetchArgs: action((state, payload) => {
+  _collectFetchArgs: action((state, payload) => {
     state.refetchArgs = payload
   }),
 })
