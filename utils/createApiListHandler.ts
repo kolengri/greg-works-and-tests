@@ -1,8 +1,8 @@
 import { DEFAULT_LIST_LIMIT } from "../config/env"
 import { Resource, Pagination, ResourceToModel } from "../types"
 
-type Result<T> = ResourceToModel<T>[]
-type Response<T> = {
+type Result<T extends Resource<any>> = ResourceToModel<T>[]
+type Response<T extends Resource<any>> = {
   result: Result<T>
 } & Pagination
 
