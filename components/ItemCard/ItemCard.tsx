@@ -5,6 +5,7 @@ import classnames from "classnames"
 
 import { ImageProps, Image } from "../Image"
 import styles from "./ItemCard.module.scss"
+import { IMAGES_PUBLIC_API_PATH } from "../../config/env"
 
 type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 type HeaderProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
@@ -19,6 +20,9 @@ export const ItemCard = withSlots<ItemCardSlots, ItemCardProps>((props) => {
   const { className, children, slotProps, ...otherProps } = props
   return (
     <div className={classnames(styles.ItemCard, className)} {...otherProps}>
+      {slotProps.Image && (
+        <Image {...slotProps.Image} src={`${IMAGES_PUBLIC_API_PATH}/${slotProps.Image.src}`} />
+      )}
       {slotProps.Header && (
         <header className={classnames(styles.Header, slotProps.Header.className)}>
           {slotProps.Header.children}

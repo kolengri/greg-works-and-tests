@@ -20,6 +20,7 @@ const IndexPage: React.FC<IndexPageProps> = () => {
       <HomeLayout.Title>Home sweet home</HomeLayout.Title>
       {characters.map((item, index) => (
         <ItemCard key={index}>
+          <ItemCard.Image src={item.image} />
           <ItemCard.Header>{item.name}</ItemCard.Header>
         </ItemCard>
       ))}

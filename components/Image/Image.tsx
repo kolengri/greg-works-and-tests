@@ -1,9 +1,11 @@
 import * as React from "react"
 
-export type ImageProps = {}
+type ImgProps = React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>
+
+export type ImageProps = {} & ImgProps
 
 const ImageMemo: React.FC<ImageProps> = (props) => {
-  return <>Image</>
+  return <img {...props} />
 }
 
 export const Image = React.memo(ImageMemo)
