@@ -5,8 +5,9 @@ import * as paths from "./paths"
 
 export type Response = ApiListResponse<People[]>
 export type Params = {
-  search?: string
+  name?: string
   page?: number
+  limit?: number
 }
 
 export const fetchPeoples = async (params: Params): Promise<People[]> => {
