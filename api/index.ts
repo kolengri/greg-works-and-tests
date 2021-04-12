@@ -1,1 +1,1 @@
-export { fetchPeoples } from "./fetchPeoples"
+export { fetchCharacters } from "./fetchCharacters"

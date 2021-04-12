@@ -1,5 +1,6 @@
+import { Pagination } from "../../types"
+
 export type ApiResponse<T> = {
-  message: "ok"
-  results: T extends [] ? T : never
-  result: T extends Object | string | number ? T : never
+  result: T
+  pagination: T extends [] ? Pagination : never
 }

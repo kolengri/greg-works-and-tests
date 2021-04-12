@@ -1,9 +1,9 @@
-import { heroesModel } from "./heroesModel"
+import { charactersModel } from "./charactersModel"
 
 export type StoreModel = typeof storeModel
 
 const storeModel = {
-  heroes: heroesModel,
+  characters: charactersModel,
 }
 
 export default storeModel

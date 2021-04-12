@@ -7,11 +7,11 @@ import { storeHooks } from "../store"
 export type IndexPageProps = {}
 
 const IndexPage: React.FC<IndexPageProps> = () => {
-  const { refetch, resetStore, fetchContent } = storeHooks.useStoreActions((s) => s.heroes)
-  const heroes = storeHooks.useStoreState((s) => s.heroes)
+  const { refetch, resetStore, fetchContent } = storeHooks.useStoreActions((s) => s.characters)
+  const heroes = storeHooks.useStoreState((s) => s.characters)
 
   useEffect(() => {
-    fetchContent({ page: 3, limit: 10 })
+    fetchContent({ skip: 10, limit: 10 })
   }, [])
 
   return (
@@ -21,10 +21,10 @@ const IndexPage: React.FC<IndexPageProps> = () => {
       <Button loading={heroes.loading} onClick={() => refetch()}>
         Refetch!
       </Button>
-      <Button loading={heroes.loading} onClick={() => fetchContent({ page: 1, limit: 10 })}>
+      <Button loading={heroes.loading} onClick={() => fetchContent({ skip: 1, limit: 10 })}>
         Fetch first page!
       </Button>
-      <Button loading={heroes.loading} onClick={() => fetchContent({ page: 5, limit: 5 })}>
+      <Button loading={heroes.loading} onClick={() => fetchContent({ skip: 0, limit: 5 })}>
         Fetch other page!
       </Button>
       <Button onClick={() => resetStore()}>Reset!</Button>
