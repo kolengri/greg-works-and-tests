@@ -13,8 +13,6 @@ $cardSize: 200px;
   @apply transform transition duration-500 ease-in-out origin-center hover:-translate-y-1 hover:scale-110;
   @apply cursor-pointer;
 
-  perspective: 400px;
-
   &:hover {
     @apply z-30;
   }
@@ -30,7 +28,7 @@ $cardSize: 200px;
 .Preview {
   @apply relative;
   @apply overflow-hidden;
-  @apply rounded-xl swTransform;
+  @apply rounded-xl;
 }
 
 @keyframes enter {
