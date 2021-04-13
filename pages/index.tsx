@@ -22,7 +22,7 @@ const IndexPage: React.FC<IndexPageProps> = () => {
   return (
     <HomeLayout>
       <HomeLayout.Title className="text-center mx-auto font-jedy my-10">Star Wars</HomeLayout.Title>
-      <Container>
+      <Container className="my-16">
         <TilesGrid>
           {characters.map((item) => (
             <ItemCard key={item.id}>
@@ -31,7 +31,7 @@ const IndexPage: React.FC<IndexPageProps> = () => {
             </ItemCard>
           ))}
         </TilesGrid>
-        <div className="flex justify-between w-full">
+        <div className="flex justify-between w-full flex-wrap">
           <div className="grid grid-flow-col auto-cols-max gap-6">
             <Button
               loading={loading}
