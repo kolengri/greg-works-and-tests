@@ -1,46 +1,60 @@
 import { useEffect } from "react"
 
 import { HomeLayout } from "../layouts"
-import { Button, ItemCard, TilesGrid } from "../components"
+import { Button, ItemCard, TilesGrid, Container, Pagination } from "../components"
 import { storeHooks } from "../store"
 
 export type IndexPageProps = {}
 
 const IndexPage: React.FC<IndexPageProps> = () => {
   const { refetch, resetStore, fetchContent } = storeHooks.useStoreActions((s) => s.characters)
-  const { result: characters, skip } = storeHooks.useStoreState((s) => s.characters.data)
+  const { result: characters, skip, limit, total } = storeHooks.useStoreState(
+    (s) => s.characters.data
+  )
   const { loading } = storeHooks.useStoreState((s) => s.characters)
 
+  const showAll = () => fetchContent({ skip: 0, limit: 20 })
+
   useEffect(() => {
-    fetchContent({ skip: 0, limit: 10 })
+    showAll()
   }, [])
 
   return (
     <HomeLayout>
-      <HomeLayout.Title>Home sweet home</HomeLayout.Title>
-      <TilesGrid>
-        {characters.map((item) => (
-          <ItemCard key={item.id}>
-            <ItemCard.Image src={item.image} />
-            <ItemCard.Header>{item.name}</ItemCard.Header>
-          </ItemCard>
-        ))}
-      </TilesGrid>
-      <Button loading={loading} onClick={() => refetch()}>
-        Refetch!
-      </Button>
-      <Button loading={loading} onClick={() => fetchContent({ skip: skip + 10, limit: 10 })}>
-        Next
-      </Button>
-      <Button loading={loading} onClick={() => fetchContent({ skip: skip - 10, limit: 10 })}>
-        Prev
-      </Button>
-
-      <Button loading={loading} onClick={() => fetchContent({ search: "skywalk" })}>
-        show skywalkers
-      </Button>
-
-      <Button onClick={() => resetStore()}>Reset!</Button>
+      <HomeLayout.Title className="text-center mx-auto font-jedy my-10">Star Wars</HomeLayout.Title>
+      <Container>
+        <TilesGrid>
+          {characters.map((item) => (
+            <ItemCard key={item.id}>
+              <ItemCard.Image height={200} width={200} src={item.image} />
+              <ItemCard.Header>{item.name}</ItemCard.Header>
+            </ItemCard>
+          ))}
+        </TilesGrid>
+        <div className="flex justify-between w-full">
+          <div className="grid grid-flow-col auto-cols-max gap-6">
+            <Button
+              loading={loading}
+              onClick={() => fetchContent({ search: "skywalk", skip: 0, limit: 20 })}
+            >
+              Show skywalkers
+            </Button>
+            <Button loading={loading} onClick={showAll}>
+              Show All
+            </Button>
+            <Button loading={loading} onClick={() => refetch()}>
+              Refetch!
+            </Button>
+            <Button onClick={() => resetStore()}>Clear!</Button>
+          </div>
+          <div>
+            <Pagination {...{ limit, skip, total }} className="max-w-xs ml-auto">
+              <Pagination.NextButton onClick={() => fetchContent({ skip: skip + limit, limit })} />
+              <Pagination.PrevButton onClick={() => fetchContent({ skip: skip - limit, limit })} />
+            </Pagination>
+          </div>
+        </div>
+      </Container>
     </HomeLayout>
   )
 }

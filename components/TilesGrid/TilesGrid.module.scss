@@ -1,4 +1,34 @@
 .TilesGrid {
   @apply grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:auto-cols-auto;
-  @apply grid gap-4;
+  @apply grid gap-8;
+  @apply select-none;
+  @apply my-11;
+}
+
+.Tile {
+  @apply transform transition-all;
+}
+
+.Tile_transform1 {
+  @apply scale-110 -rotate-6;
+}
+
+.Tile_transform2 {
+  @apply scale-75 rotate-6 translate-x-2 translate-y-1;
+}
+
+.Tile_transform3 {
+  @apply translate-y-5;
+}
+
+.Tile_transform4 {
+  @apply translate-x-1 translate-y-4;
+}
+
+.Tile_transform5 {
+  @apply scale-75 -rotate-6 translate-x-2 translate-y-1;
+}
+
+.Tile_transform6 {
+  @apply scale-110 rotate-6;
 }

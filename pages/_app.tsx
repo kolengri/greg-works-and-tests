@@ -1,6 +1,5 @@
 import "../styles/fonts.scss"
 import "../styles/globals.css"
-import "../styles/_utils.scss"
 
 import React from "react"
 import { AppProps } from "next/app"

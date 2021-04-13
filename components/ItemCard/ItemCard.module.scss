@@ -1,5 +1,3 @@
-@import "../../styles/utils";
-
 $cardSize: 200px;
 
 .ItemCard {
@@ -15,6 +13,8 @@ $cardSize: 200px;
   @apply transform transition duration-500 ease-in-out origin-center hover:-translate-y-1 hover:scale-110;
   @apply cursor-pointer;
 
+  perspective: 400px;
+
   &:hover {
     @apply z-30;
   }
@@ -22,12 +22,15 @@ $cardSize: 200px;
 
 .Image {
   @apply rounded-xl;
+
+  width: $cardSize;
+  height: $cardSize;
 }
 
 .Preview {
   @apply relative;
   @apply overflow-hidden;
-  @apply rounded-xl;
+  @apply rounded-xl swTransform;
 }
 
 @keyframes enter {
@@ -44,7 +47,7 @@ $cardSize: 200px;
 
 .Header {
   @apply absolute w-full px-3 py-1;
-  @apply text-yellow-starWars text-lg text-jedy;
+  @apply text-yellow-starWars text-lg font-jedy;
   @apply bg-black;
   @apply rounded-b-xl;
   @apply transform skew-y-6 skew-x-2;

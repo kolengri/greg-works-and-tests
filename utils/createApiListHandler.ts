@@ -29,7 +29,9 @@ export const createApiListHandler = <T extends Resource<any>>(
     }
     return data
   }
-  const result: Result<T> = withSearch(data)
+  const searchPipeData = withSearch(data)
+
+  const result: Result<T> = searchPipeData
     .slice(Number(skip), Number(skip) + Number(limit))
     .map((item) => ({
       id: item.pk,
@@ -40,6 +42,6 @@ export const createApiListHandler = <T extends Resource<any>>(
     limit,
     result,
     skip,
-    total: data.length,
+    total: searchPipeData.length,
   }
 }

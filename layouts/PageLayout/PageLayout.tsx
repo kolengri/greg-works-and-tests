@@ -13,7 +13,7 @@ export const PageLayout = withSlots<PageLayoutSlots, PageLayoutProps>((props) =>
   return (
     <BaseLayout propagateSlotProps={slotProps}>
       {slotProps.Title && (
-        <BaseLayout.Header>
+        <BaseLayout.Header {...slotProps.Title}>
           <TypeHeader as="h1">{slotProps.Title.children}</TypeHeader>
         </BaseLayout.Header>
       )}

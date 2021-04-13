@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply text-base;
+  @apply bg-black;
+  @apply text-base text-yellow-starWars;
   @apply min-h-screen;
 }

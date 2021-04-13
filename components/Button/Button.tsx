@@ -20,25 +20,29 @@ const ButtonMemo: React.FC<ButtonProps> = (props) => {
   const defaultTitle = typeof children === "string" && !title ? children : title
 
   return (
-    <button
-      title={defaultTitle}
-      className={classnames(styles.Button, className)}
-      disabled={off}
-      {...otherProps}
-    >
-      <span
-        className={classnames(styles.Content, {
-          [styles.Content_off]: off,
+    <div className={styles.Outer}>
+      <button
+        title={defaultTitle}
+        className={classnames(styles.Button, className, {
+          [styles.Button_loading]: loading,
         })}
+        disabled={off}
+        {...otherProps}
       >
-        {children}
-      </span>
-      {loading && (
-        <div className={styles.Loader}>
-          <Loader />
-        </div>
-      )}
-    </button>
+        <span
+          className={classnames(styles.Content, {
+            [styles.Content_loading]: loading,
+          })}
+        >
+          {children}
+        </span>
+        {loading && (
+          <div className={styles.Loader}>
+            <Loader />
+          </div>
+        )}
+      </button>
+    </div>
   )
 }
 

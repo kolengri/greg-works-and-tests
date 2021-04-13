@@ -1,30 +1,48 @@
-@import "../../styles/utils";
+.Outer {
+  perspective: 60px;
+}
 
 .Button {
-  @apply relative;
+  @apply relative block;
   @apply flex flex-nowrap justify-items-center align-middle items-center;
   @apply px-5 py-1;
-  @apply text-sm text-purple-600 font-semibold;
-  @apply rounded-full;
-  @apply border border-purple-200;
+  @apply text-sm text-yellow-starWars font-semibold text-center;
+  @apply border border-yellow-starWars rounded-full;
   @apply focus:outline-none;
-  @apply transition-colors;
+  @apply transition-all;
   @apply cursor-default select-none;
+  @apply outline-none;
+
+  min-width: 100px;
 
   &:not(:disabled) {
-    @apply cursor-pointer;
-    @apply hover:bg-purple-600 hover:text-white hover:border-transparent;
+    &:target,
+    &:hover,
+    &:focus {
+      @apply cursor-pointer;
+      @apply swTransform;
+    }
+
+    &:hover {
+      @apply border-yellow-starWars border-opacity-20;
+    }
   }
 
   &:disabled {
-    @apply opacity-80;
+    @apply text-yellow-starWars;
+    @apply opacity-60;
   }
 }
 
-.Content {
+.Button_loading {
+  @apply swTransform;
 }
 
-.Content_off {
+.Content {
+  @apply text-center flex-1;
+}
+
+.Content_loading {
   @apply invisible;
 }
 
